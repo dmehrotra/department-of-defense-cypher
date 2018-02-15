@@ -92,7 +92,10 @@ with open('clean_contracts.csv', 'w') as csvfile:
     	row = {}
     	
     	for h in headers:
-    		row[h] = column[h][idx]
+    		if column[h][idx]:
+    			row[h] = column[h][idx]
+    		else:	
+    			row[h] = "False"
 
     	writer.writerow(row)
 

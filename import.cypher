@@ -3,7 +3,6 @@
 USING PERIODIC COMMIT
 LOAD CSV WITH HEADERS FROM "file:/dod/contracts.csv" AS row
 CREATE (c:Contract {psql_id: row.id, contract_number: row.contract_number, description: row.for_what, contractor_id: row.contractor_id, department_id: row.department_id,location: row.place_of_work, amount: row.amount,contracting_activity: row.contracting_activity,date: row.contract_date})
-
 MERGE(w:Place {name: row.place_of_work})
 MERGE(ca:ContractingActivity {name: row.contracting_activity})
 CREATE (ca)-[:Activity]->(c)
