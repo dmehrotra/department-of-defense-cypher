@@ -3,7 +3,7 @@ import pdb as d
 import re
 import string
 
-f = open('contracts.csv', 'rb')
+f = open('/tmp/contracts.csv', 'rb')
 regex = re.compile(".*?\((.*?)\)")
 reader = csv.reader(f)
 headers = reader.next()
@@ -84,7 +84,7 @@ for row in reader:
 			column[h].append(v.strip())
 
 
-with open('clean_contracts.csv', 'w') as csvfile:
+with open('/tmp/clean_contracts.csv', 'w') as csvfile:
     fieldnames = headers
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
